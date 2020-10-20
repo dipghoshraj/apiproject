@@ -24,7 +24,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: myapp_development
+  database: apiproject_development
   host: localhost
   pool: 5
   username: myapp
@@ -64,7 +64,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: myapp_test
+  database: apiproject_test
   host: localhost
   pool: 5
   username: myapp

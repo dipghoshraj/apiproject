@@ -18,6 +18,16 @@ class BlogPostController < ApplicationController
         end
     end
 
+    def upadate
+        @post = BlogPost.find(params["id"])
+        if @post
+            @post.updated(post_params)
+            render json: {message: "Post updated successfully", post: @post}, status:200
+        else
+            render error: {error: "error to update the post"}, status:400
+        end
+    end
+
     private
     def post_params
         params.require(:post).permit(:title, :statement)

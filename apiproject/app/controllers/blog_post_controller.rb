@@ -21,7 +21,7 @@ class BlogPostController < ApplicationController
     def upadate
         @post = BlogPost.find(params["id"])
         if @post
-            @post.updated(post_params)
+            @post.update_attributes(post_params)
             render json: {message: "Post updated successfully", post: @post}, status:200
         else
             render error: {error: "error to update the post"}, status:400

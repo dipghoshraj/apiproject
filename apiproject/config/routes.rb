@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get "/posts", to: "blog_post#index"
   post "/posts", to: "blog_post#create"
   post "/posts/update", to: "blog_post#update"
-  delete "/posts/delete", to: "blog_post#delete"
+  delete "/posts", to: "blog_post#delete"
 end

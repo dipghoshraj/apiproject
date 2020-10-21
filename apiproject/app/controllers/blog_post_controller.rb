@@ -18,7 +18,7 @@ class BlogPostController < ApplicationController
         end
     end
 
-    def upadate
+    def update
         @post = BlogPost.find(params["id"])
         if @post
             @post.update_attributes(post_params)

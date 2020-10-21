@@ -10,15 +10,11 @@ class BlogPostController < ApplicationController
     end
 
     def create
-        if params[:title] || params[:statement]
-            @post = BlogPost.new(post_params)
-            if @post.save
-                render json: {message: "Post created successfully", post: @post}, status:200
-            else
-                render error: {error: "error to save the post"}, status:400
-            end
+        @post = BlogPost.new(post_params)
+        if @post.save
+            render json: {message: "Post created successfully", post: @post}, status:200
         else
-            render error: {error:"need all field to fill", status:400}
+            render error: {error: "error to save the post"}, status:400
         end
     end
 

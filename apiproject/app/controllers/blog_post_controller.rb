@@ -20,7 +20,8 @@ class BlogPostController < ApplicationController
 
     private
     def post_params
-        params.require(:title)
+        params.require(:title).permit(:statement)
+        
     end
 
 end

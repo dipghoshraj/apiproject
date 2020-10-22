@@ -12,6 +12,7 @@ class BlogPostController < ApplicationController
             render json: @post
         else
             render error:{message: "Post not found"}, status:404
+        end
     end
 
     def create

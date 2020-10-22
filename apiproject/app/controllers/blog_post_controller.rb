@@ -16,12 +16,16 @@ class BlogPostController < ApplicationController
     end
 
     def create
-        @post = BlogPost.new(post_params)
-        if @post.persisted?&& @post.errors.blank?
-            render json: {message: "Post created successfully"}, status:201
+        if params[:title] != nil
+            @post = BlogPost.new(post_params)
+            if @post.persisted?&& @post.errors.blank?
+                render json: {message: "Post created successfully"}, status:201
+            else
+                render error: {error: "error to save the post"}, status:400
+            end
         else
-            render error: {error: "error to save the post"}, status:500
-        end
+            render error: {error: "error to save the post"}, status:400
+
     end
 
     def update

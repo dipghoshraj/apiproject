@@ -35,7 +35,7 @@ class BlogPostController < ApplicationController
             if @post.errors.blank?
                 render json: {message: "Post updated successfully", post: @blogpost.id}, status:200
             else
-                render json: {message: "error to update the post"}, status:400
+                render json: {message: "title or statement should not null or less than 3 characters"}, status:400
             end
         else
             render json: {message: "no post to update"}, status:400

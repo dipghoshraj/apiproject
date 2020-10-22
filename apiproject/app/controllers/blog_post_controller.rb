@@ -30,7 +30,7 @@ class BlogPostController < ApplicationController
 
     def update
         @post = BlogPost.find_by(id: params["id"])
-        if @post.errors.blank?
+        if @post.present?
             @post.update_attributes(post_params)
             if @post.errors.blank?
                 render json: {message: "Post updated successfully", post: @post.id}, status:200

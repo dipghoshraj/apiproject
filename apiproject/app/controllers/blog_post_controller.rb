@@ -17,7 +17,7 @@ class BlogPostController < ApplicationController
 
     def create
         @post = BlogPost.new(post_params)
-        if @post.save
+        if @post.valid?
             render json: {message: "Post created successfully"}, status:201
         else
             render error: {error: "error to save the post"}, status:500

@@ -38,13 +38,13 @@ class BlogPostController < ApplicationController
                 render json: {message: "title or statement should not null or less than 3 characters"}, status:400
             end
         else
-            render json: {message: "no post to update"}, status:400
+            render json: {message: "no post to update"}, status:404
         end
     end
 
     def delete
-        @post = BlogPost.find(params[:id])
-        if @post
+        @post = BlogPost.find_by(id: params["id"])
+        if @post.present?
             @post.destroy
             render json: {message: "Post deleted successfully", post: @post}, status:200
         else

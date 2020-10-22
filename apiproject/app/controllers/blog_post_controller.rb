@@ -18,8 +18,8 @@ class BlogPostController < ApplicationController
     def create
         # if params[:title] != nil
         @post = BlogPost.new(post_params)
-        if @post.persisted?&& @post.errors.blank?
-            render json: {message: "Post created successfully", id: @post}, status:201
+        if @post.errors.blank?
+            render json: {message: "Post created successfully", id: @post.id}, status:201
         else
             render json: {message: "title or statement should not null or less than 3 characters"}, status:400
         end
@@ -32,7 +32,7 @@ class BlogPostController < ApplicationController
         @post = BlogPost.find(params["id"])
         if @post
             @post.update_attributes(post_params)
-            render json: {message: "Post updated successfully", post: @post}, status:200
+            render json: {message: "Post updated successfully", post: @post.id}, status:200
         else
             render error: {error: "error to update the post"}, status:400
         end

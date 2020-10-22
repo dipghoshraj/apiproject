@@ -7,6 +7,7 @@ class BlogPostController < ApplicationController
 
     # GET /posts/1
     def show
+        @post = BlogPost.find(params[:id])
         render json: @post
     end
 

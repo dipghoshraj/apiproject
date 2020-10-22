@@ -19,7 +19,7 @@ class BlogPostController < ApplicationController
         # if params[:title] != nil
         @post = BlogPost.new(post_params)
         if @post.persisted?&& @post.errors.blank?
-            render json: {message: "Post created successfully"}, status:201
+            render json: {message: "Post created successfully", id: @post.id}, status:201
         else
             render json: {message: "title or statement should not null or less than 3 characters"}, status:400
         end

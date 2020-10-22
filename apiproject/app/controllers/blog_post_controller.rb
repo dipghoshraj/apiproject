@@ -1,10 +1,11 @@
 class BlogPostController < ApplicationController
-    # GET /post
+    # GET /posts
     def index
         @post = BlogPost.all
         render json: @post
     end
 
+    # GET /posts/1
     def show
         render json: @post
     end

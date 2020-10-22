@@ -25,7 +25,7 @@ class BlogPostController < ApplicationController
             end
         else
             render error: {error: "error to save the post"}, status:400
-
+        end
     end
 
     def update
@@ -53,5 +53,4 @@ class BlogPostController < ApplicationController
     def post_params
         params.require(:post).permit(:title, :statement)
     end
-
 end

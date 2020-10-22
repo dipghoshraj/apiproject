@@ -2,6 +2,6 @@ class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
   def created_at
-    attributes['created_at'].strftime("%Y/%m/%d %H:%M")
+    attributes['created_at'].strftime("%m/%d/%Y %H:%M")
   end
 end

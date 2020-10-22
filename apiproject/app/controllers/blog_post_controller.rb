@@ -21,7 +21,7 @@ class BlogPostController < ApplicationController
         if @post.persisted?&& @post.errors.blank?
             render json: {message: "Post created successfully"}, status:201
         else
-            render json: {message: "error to save the post"}, status:400
+            render json: {message: "title or statement should not null or less than 3 characters"}, status:400
         end
         # else
         #     render json: {json: "error to save the post"}, status:400

@@ -8,15 +8,18 @@ class BlogPostController < ApplicationController
     # GET /posts/1
     def show
         @post = BlogPost.find(params[:id])
-        render json: @post
+        if @post
+            render json: @post
+        else
+            render error:{message: "Post not found"}, status:404
     end
 
     def create
         @post = BlogPost.new(post_params)
         if @post.save
-            render json: {message: "Post created successfully", post: @post}, status:200
+            render json: {message: "Post created successfully"}, status:201
         else
-            render error: {error: "error to save the post"}, status:400
+            render error: {error: "error to save the post"}, status:500
         end
     end
 
@@ -36,7 +39,7 @@ class BlogPostController < ApplicationController
             @post.destroy
             render json: {message: "Post deleted successfully", post: @post}, status:200
         else
-            render error: {error: "error to delete the post"}, status:400
+            render error: {error: "no such post for delet"}, status:404
         end
     end
 

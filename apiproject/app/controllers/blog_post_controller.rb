@@ -16,7 +16,8 @@ class BlogPostController < ApplicationController
     end
 
     def create
-        @post = BlogPost.new(post_params)
+        @post = BlogPost.create(post_params)
+        puts @post.errors
         if @post.valid?&& @post.errors.blank?
             render json: {message: "Post created successfully"}, status:201
         else

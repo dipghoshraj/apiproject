@@ -29,11 +29,11 @@ class BlogPostController < ApplicationController
     end
 
     def update
-        @blogpost = BlogPost.find(params["id"])
-        if @blogpost
-            @post = @blogpost.update_attributes(post_params)
+        @post = BlogPost.find(params["id"])
+        if @post
+            @post.update_attributes(post_params)
             if @post.errors.blank?
-                render json: {message: "Post updated successfully", post: @blogpost.id}, status:200
+                render json: {message: "Post updated successfully", post: @post.id}, status:200
             else
                 render json: {message: "title or statement should not null or less than 3 characters"}, status:400
             end

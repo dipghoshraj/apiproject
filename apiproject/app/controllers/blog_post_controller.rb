@@ -29,7 +29,7 @@ class BlogPostController < ApplicationController
     end
 
     def update
-        @post = BlogPost.find(params["id"])
+        @post = BlogPost.find_by(id: params["id"])
         if @post.errors.blank?
             @post.update_attributes(post_params)
             if @post.errors.blank?

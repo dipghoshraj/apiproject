@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-    JsonWebToken = JsonWebToken.new
     def create
         @user = User.find_by(email: params[:email]).try(:authenticate, params[:password])
         if @user

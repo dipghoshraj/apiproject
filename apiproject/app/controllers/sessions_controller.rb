@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         if @user
             session[:user_id] = @user.id
             token = JsonWebToken.encode(user_id: @user.id)
-            render json: { token: token, username: @user.email }, status: :200
+            render json: { token: token, username: @user.email }, status:200
         else
             render json: { status: 401 }
         end

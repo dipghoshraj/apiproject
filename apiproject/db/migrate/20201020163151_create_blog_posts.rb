@@ -3,8 +3,7 @@ class CreateBlogPosts < ActiveRecord::Migration[5.2]
     create_table :blog_posts do |t|
       t.string :title
       t.string :statement
-
-      t.timestamps.strftime("%d/%m/%Y")
+      t.timestamps
     end
   end
 end

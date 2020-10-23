@@ -2,7 +2,7 @@ class UserController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @post.errors.blank? && @post.save
+        if @user.errors.blank? && @user.save
             render json: {message: "user created successfully", id: @user.id}, status:201
         else
             render json: {message: "something wwent wrong"}, status:403

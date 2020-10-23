@@ -5,8 +5,7 @@ class SessionsController < ApplicationController
         if @user
             session[:user_id] = @user.id
             token = JsonWebToken.encode(user_id: @user.id)
-            time = Time.now + 24.hours.to_i
-            render json: { token: token, exp: time.strftime("%m-%d-%Y %H:%M"),username: @user.email }, status: :200
+            render json: { token: token, username: @user.email }, status: :200
         else
             render json: { status: 401 }
         end

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post "/posts", to: "blog_post#create"
   post "/posts/update", to: "blog_post#update"
   delete "/posts", to: "blog_post#delete"
+  post "/user/signup", to: "user#create"
 end

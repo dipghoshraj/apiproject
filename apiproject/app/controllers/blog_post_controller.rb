@@ -1,4 +1,7 @@
 class BlogPostController < ApplicationController
+    before_action :authorize_request
+
+    
     # GET /posts
     def index
         @post = BlogPost.all

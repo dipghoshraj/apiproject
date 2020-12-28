@@ -58,6 +58,6 @@ class BlogPostController < ApplicationController
 
     private
     def post_params
-        params.require(:post).permit(:title, :statement, :images)
+        params.permit(:title, :statement, :images)
     end
 end

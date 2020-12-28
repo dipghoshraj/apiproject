@@ -32,7 +32,7 @@ class BlogPost < ApplicationRecord
               _filename = pict[1]
               _content_type = pict[2]
               images_compressed.attach(io: File.open(_path), filename:  _filename, content_type: _content_type)
-              images
+            #   images
             end
         else
             profile_picture.purge

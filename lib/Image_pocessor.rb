@@ -2,6 +2,8 @@ require "mini_magick"
 
 class ImageProcessor
     def self.resize_image(image_path)
+        puts "test path"
+        puts image_path
         image = MiniMagick::Image.read(image_path.downloaded)
         image.resize "100x100"
 

@@ -20,7 +20,7 @@ class BlogPostController < ApplicationController
 
     def create
         # if params[:title] != nil
-        @post = BlogPost.new(post_params)
+        @post = BlogPost.create(:title => params[:title], :statement => params[:statement])
         if @post.errors.blank? && @post.save
             render json: {message: "Post created successfully", id: @post.id}, status:201
         else

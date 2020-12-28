@@ -11,11 +11,10 @@ class BlogPost < ApplicationRecord
         basic_attributes = self.slice(:id, :title, :statement)
         basic_attributes.merge!({
             images: Rails.application.routes.url_helpers.rails_blob_path(self.images, only_path: true)
-        }) if self.images.attached?
-
+        })
         basic_attributes.merge!({
             images_compressed: Rails.application.routes.url_helpers.rails_blob_path(self.images_compressed, only_path: true)
-        }) if self.images.attached?
+        })
 
         return basic_attributes
     end

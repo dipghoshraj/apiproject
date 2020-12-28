@@ -10,3 +10,4 @@ class ImageProcessor
 
         return image.path, v_filename, v_contant
     end
+end

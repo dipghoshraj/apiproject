@@ -12,9 +12,9 @@ class BlogPost < ApplicationRecord
         basic_attributes.merge!({
             images: Rails.application.routes.url_helpers.rails_blob_path(self.images, only_path: true)
         })
-        basic_attributes.merge!({
-            images_compressed: Rails.application.routes.url_helpers.rails_blob_path(self.images_compressed, only_path: true)
-        })
+        # basic_attributes.merge!({
+        #     images_compressed: Rails.application.routes.url_helpers.rails_blob_path(self.images_compressed, only_path: true)
+        # })
 
         return basic_attributes
     end
